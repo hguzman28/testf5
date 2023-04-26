@@ -1,44 +1,32 @@
 openapi: 3.0.1
 info:
-  title: 'f5challange'
-  description: 'f5challange'
+  title: 'Primitive data types'
+  description: 'Primitive data types.'
   version: '2.5.0'
 servers:
-  - url: http://challange3.appsjamar.com
+  - url: http://localhost
 paths:
-  /cache/:
+  /query:
     get:
       tags:
-        - test_cache
-      description: tj_int
-      operationId: tj_int
+        - query_int_str
+      description: query_int_str
+      operationId: query_int_str
       parameters:
-        - name: tj
+        - name: query_int
           in: query
-          required: true
+          required: false
           allowEmptyValue: false
           schema:
             type: integer
+        - name: query_str
+          in: query
+          required: false
+          allowEmptyValue: true
+          schema:
+            type: string
       responses:
         200:
           description: OK
         404:
           description: NotFound
-  /normal/:
-    get:
-      tags:
-        - test_cache
-      description: tj_int
-      operationId: tj_int2
-      parameters:
-        - name: tj
-          in: query
-          required: true
-          allowEmptyValue: false
-          schema:
-            type: integer
-      responses:
-        200:
-          description: OK
-        404:
-          description: NotFound          
