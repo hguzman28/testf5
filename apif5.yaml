@@ -1,83 +1,44 @@
-openapi: 3.0.2
+openapi: 3.0.1
 info:
-  title: f5challange
-  version: 0.1.0
+  title: 'f5challange'
+  description: 'f5challange'
+  version: '2.5.0'
 servers:
-  - url: http://challange3.appsjamar.com  
+  - url: http://challange3.appsjamar.com
 paths:
-  /cache/{tj}:
+  /cache/:
     get:
-      summary: Hello World1
-      operationId: hello_world1_cache__tj__get
+      tags:
+        - test_cache
+      description: tj_int
+      operationId: tj_int
       parameters:
-        - required: true
+        - name: tj
+          in: query
+          required: true
+          allowEmptyValue: false
           schema:
-            title: Tj
             type: integer
-          name: tj
-          in: path
       responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: {}
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /normal/{tj}:
+        200:
+          description: OK
+        404:
+          description: NotFound
+  /normal/:
     get:
-      summary: Hello World2
-      operationId: hello_world2_normal__tj__get
+      tags:
+        - test_cache
+      description: tj_int
+      operationId: tj_int2
       parameters:
-        - required: true
+        - name: tj
+          in: query
+          required: true
+          allowEmptyValue: false
           schema:
-            title: Tj
             type: integer
-          name: tj
-          in: path
       responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: {}
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-components:
-  schemas:
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    ValidationError:
-      title: ValidationError
-      required:
-        - loc
-        - msg
-        - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            type: string
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
+        200:
+          description: OK
+        404:
+          description: NotFound
