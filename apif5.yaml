@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://challange3.appsjamar.com
 paths:
-  /cache/:
+  /cache:
     get:
       tags:
         - test_cache
@@ -24,7 +24,7 @@ paths:
           description: OK
         404:
           description: NotFound
-  /normal/:
+  /normal:
     get:
       tags:
         - test_cache
