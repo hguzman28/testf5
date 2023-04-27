@@ -24,7 +24,7 @@ paths:
           description: OK
         404:
           description: NotFound
-  /normal:
+  /policy:
     get:
       tags:
         - test_cache
